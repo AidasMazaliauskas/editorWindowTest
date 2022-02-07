@@ -1,0 +1,37 @@
+allprojects {
+    buildscript {
+        repositories {**ARTIFACTORYREPOSITORY**
+            google()
+            mavenCentral()
+                // Repositories start
+                
+maven {url 'https://developer.huawei.com/repo/'}// Repositories end
+        }
+
+        dependencies {
+            // Dependencies start
+            
+classpath 'com.huawei.agconnect:agcp:1.4.2.300'// Dependencies end
+            classpath 'com.android.tools.build:gradle:3.6.0'
+            **BUILD_SCRIPT_DEPS**
+        }
+    }
+
+    repositories {**ARTIFACTORYREPOSITORY**
+        google()
+        mavenCentral()
+        maven { url "http://maven.singular.net/"}
+		maven { url "https://android-sdk.is.com/" }
+		maven { url "https://www.jitpack.io" }
+		maven { url 'https://artifact.bytedance.com/repository/pangle'}
+        maven { url "https://aa-sdk.s3-eu-west-1.amazonaws.com/android_repo/" } // SuperAwesome repo
+        maven { url "https://plugins.gradle.org/m2/" } // New super awesome repo
+		maven { url "https://developer.huawei.com/repo/"}
+        maven { url "https://chartboostmobile.bintray.com/Chartboost" }	
+        flatDir { dirs "${project(':unityLibrary').projectDir}/libs" }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

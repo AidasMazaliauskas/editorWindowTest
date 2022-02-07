@@ -1,0 +1,53 @@
+apply plugin: 'com.android.library'
+**APPLY_PLUGINS**
+
+
+
+
+
+
+dependencies {
+	// Dependencies start
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+	
+	//Generic Libraries
+    implementation 'androidx.multidex:multidex:2.0.1'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'commons-io:commons-io:2.6'
+	implementation 'com.android.installreferrer:installreferrer:1.1'
+
+
+	// Dependencies end
+**DEPS**}
+
+android {
+    compileSdkVersion **APIVERSION**
+    buildToolsVersion '**BUILDTOOLS**'
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        minSdkVersion **MINSDKVERSION**
+        targetSdkVersion **TARGETSDKVERSION**
+        ndk {
+            abiFilters **ABIFILTERS**
+        }
+        versionCode **VERSIONCODE**
+        versionName '**VERSIONNAME**'
+        consumerProguardFiles 'proguard-unity.txt'**USER_PROGUARD**
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    aaptOptions {
+        **TUTO_COMPRESSION_SUPPORT**
+        ignoreAssetsPattern = "!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~"
+    }**PACKAGING_OPTIONS**
+}**REPOSITORIES****SOURCE_BUILD_SETUP**
+**EXTERNAL_SOURCES**
